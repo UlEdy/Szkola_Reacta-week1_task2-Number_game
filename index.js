@@ -1,6 +1,6 @@
 prompt = require('prompt');
 
-let randomNr = Math.floor(Math.random()*10+1);
+const randomNr = Math.floor(Math.random()*10+1);
 
 console.log(`Choose your number from 1 to 10`);
 
@@ -10,15 +10,13 @@ prompt.get('number', (_err, result) => {
 
     const userNr = parseInt(result.number);
 
-    let message = () => {
-            let msg;
-            if (userNr < 1 || userNr > 10) {
-                return msg= `Incorrect number!`
-            }; if (userNr >= 1 && userNr <= 10 &&  userNr === randomNr) {
-                return msg = `Success! Your number ${userNr} = compared number ${randomNr}`
-            }; {
-                return msg = `Try again! Your number ${userNr}; compared number ${randomNr}`
-            };};
+    const message = () => {
+            if (userNr < 1 || userNr > 10 || isNaN(userNr)) {
+                return `Incorrect number!`
+            }; if (userNr === randomNr) {
+                return `Success! Your number ${userNr} = compared number ${randomNr}`
+            };  return `Try again! Your number ${userNr}; compared number ${randomNr}`
+            };
 
     console.log(message())
 } );
