@@ -5,4 +5,4 @@ Will you guess the number?
 
 To run game use terminal:
 
-npm run number
+`npm run number`
